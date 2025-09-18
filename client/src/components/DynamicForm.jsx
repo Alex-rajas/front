@@ -78,7 +78,7 @@ const categoricalOptions = {
     { value: "defeat", label: "Derrota" }
   ],
   pos: [
-    { value: "GK", label: "Portero" },
+    
     { value: "DF", label: "Defensa" },
     { value: "MF", label: "Centrocampista" },
     { value: "FW", label: "Delantero" }

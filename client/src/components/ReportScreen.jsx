@@ -87,12 +87,12 @@ export default function ReportScreen() {
 
   const categoricalDisplayToModel = {
     result: { "Victoria": "victory", "Empate": "draw", "Derrota": "defeat" },
-    pos: { "Portero": "GK", "Defensa": "DF", "Medio": "MF", "Delantero": "FW" }
+    pos: {  "Defensa": "DF", "Medio": "MF", "Delantero": "FW" }
   };
 
   const categoryLabelMap = {
     result: { victory: "Victoria", draw: "Empate", defeat: "Derrota" },
-    pos: { GK: "Portero", DF: "Defensa", MF: "Centrocampista", FW: "Delantero" }
+    pos: {  DF: "Defensa", MF: "Centrocampista", FW: "Delantero" }
   };
 
   const fetchPlayerHistory = async () => {
