@@ -13,7 +13,9 @@ export default function ModelSelector({ models, onSelect, onShowReport }) {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md mt-6">
-        {Object.keys(models).map((key) => (
+        {Object.keys(models)
+          .filter(key => key !== 'arquetipo')
+          .map((key) => (
           <motion.button
             key={key}
             onClick={() => onSelect(key)}
@@ -24,18 +26,7 @@ export default function ModelSelector({ models, onSelect, onShowReport }) {
             {models[key].name || key.replace("_", " ")}
           </motion.button>
         ))}
-
-        {/* Botón para informe del jugador, distinto color */}
-        <motion.button
-          onClick={onShowReport}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-green-500 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:bg-green-600 transition text-lg w-full"
-        >
-          Informe del jugador
-        </motion.button>
       </div>
     </div>
   );
 }
-

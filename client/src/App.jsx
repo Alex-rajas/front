@@ -127,7 +127,9 @@ export default function App() {
           <p>No hay modelos disponibles</p>
         ) : (
           <div className="flex flex-col space-y-3 w-full max-w-md">
-            {Object.keys(models).map((key) => (
+            {Object.keys(models)
+              .filter(key => key !== 'arquetipo')
+              .map((key) => (
               <button
                 key={key}
                 onClick={() => setSelectedModel(key)}
@@ -136,12 +138,6 @@ export default function App() {
                 {models[key]?.display_name || key}
               </button>
             ))}
-            <button
-              onClick={() => setShowReport(true)}
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-2xl shadow-lg transition transform hover:scale-105"
-            >
-              Informe del jugador
-            </button>
           </div>
         )}
 
