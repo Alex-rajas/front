@@ -5,24 +5,7 @@ import DynamicForm from "./components/DynamicForm";
 import ScoreCard from "./components/ScoreCard";
 import ReportScreen from "./components/ReportScreen";
 import PlayerStats from "./components/PlayerStats";
-
-// Pantalla de inicio
-function HomeScreen({ onContinue }) {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gradient-to-b from-blue-100 to-blue-300 text-center">
-      <h1 className="text-4xl font-bold mb-4">MyMatch ⚡</h1>
-      <p className="mb-6 text-lg max-w-md">
-        Calcula la puntuación de los jugadores, visualiza su historial y gráficos de rendimiento en cada partido.
-      </p>
-      <button
-        onClick={onContinue}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition"
-      >
-        Entrar al menú
-      </button>
-    </div>
-  );
-}
+import WelcomeScreen from "./components/WelcomeScreen";
 
 export default function App() {
   const [models, setModels] = useState(null); // Cambiado a null para mejor control
@@ -121,8 +104,8 @@ export default function App() {
     );
   }
 
-  // Pantalla de inicio
-  if (showHome) return <HomeScreen onContinue={() => setShowHome(false)} />;
+  // Pantalla de inicio - CORREGIDO: ahora usa WelcomeScreen
+  if (showHome) return <WelcomeScreen onStart={() => setShowHome(false)} />;
 
   // Menú de selección de modelo - CORREGIDO
   if (!selectedModel) {
